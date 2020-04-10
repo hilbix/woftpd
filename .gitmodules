@@ -1,0 +1,4 @@
+[submodule "minilib"]
+	path = minilib
+	branch = minilib
+	url = https://github.com/hilbix/tinolib.git
