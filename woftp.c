@@ -1,4 +1,21 @@
 #include <stdio.h>
+#include <stdarg.h>
+
+#include "FORMAT.h"
+
+#define	_LF		"\n"
+
+#define	FORMAT(...)	FORMAT_(__VA_LIST__, NULL)
+static void
+
+#define	OOPS(...)	OOPS_(__VA_LIST__, NULL)
+static void
+_OOPS(const char *s, ...)
+{
+  va_start(list, s);
+  FORMAT(stdout, NULL, s, list);
+  va_end(list, s);
+}
 
 struct _woftpd
   {
@@ -12,8 +29,9 @@ void
 usage(struct _woftpd *F)
 {
   if (!*F->sock)
-    OOPS("Usage: ", arg0(F), " socket|- [dir [cmd args..]]", OOPS_LF,
-	"\tWrite Only FTP server
+    OOPS("Usage: ", arg0(F), " socket|- [dir [cmd args..]]", FORMAT_LF,
+	"\tWrite Only FTP server version ", WOFTPD_VER, " compiled ", __DATE__, FORMAT_LF
+	"\tURL: ", WOFTPD_URL);
 }
 
 /* no options
