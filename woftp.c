@@ -1,37 +1,29 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "minilib/all.h"
 
-#include "FORMAT.h"
-
-#define	_LF		"\n"
-
-#define	FORMAT(...)	FORMAT_(__VA_LIST__, NULL)
-static void
-
-#define	OOPS(...)	OOPS_(__VA_LIST__, NULL)
-static void
-_OOPS(const char *s, ...)
-{
-  va_start(list, s);
-  FORMAT(stdout, NULL, s, list);
-  va_end(list, s);
-}
-
-struct _woftpd
+typedef struct _woftpd
   {
     const char		*arg0;	/* cmdline:0		*/
     const char		*sock;	/* cmdline:1		*/
     const char		*dir;	/* cmdline:2 or .	*/
     const char * const	*cmd;	/* cmdline:3+ or NULL	*/
-  };
+  } *F;
+
+static const char *
+arg0(F F)
+{
+  const char	*p;
+
+  p	= strrchr(F->arg0, '/');
+  return p ? p+1 : F->arg0;
+}
 
 void
-usage(struct _woftpd *F)
+usage(F F)
 {
   if (!*F->sock)
-    OOPS("Usage: ", arg0(F), " socket|- [dir [cmd args..]]", FORMAT_LF,
-	"\tWrite Only FTP server version ", WOFTPD_VER, " compiled ", __DATE__, FORMAT_LF
-	"\tURL: ", WOFTPD_URL);
+    OOPS("Usage: ", basename(F->arg0), " socket|- [dir [cmd args..]]", OUTlf,
+        "\tWrite Only FTP server version ", GIT_VER, " compiled ", __DATE__, OUTlf,
+        "\tURL: ", GIT_URL);
 }
 
 /* no options
