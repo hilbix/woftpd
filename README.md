@@ -1,3 +1,5 @@
+**THIS IS NOT READY YET**
+
 > **DO NOT EXPOSE THIS TOOL TO THE PUBLIC INTERNET!**
 >
 > If you do, many funny random looking files will show up
@@ -8,6 +10,8 @@
 > in virtually no time.  But no gurantees, so you are
 > fully self responsible if you ever let others
 > access this tool if you do not fully trust them.
+
+[![WOftpD Status](https://api.cirrus-ci.com/github/hilbix/woftpd.svg)](https://cirrus-ci.com/github/hilbix/woftpd)
 
 
 # woftpd
