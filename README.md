@@ -91,8 +91,3 @@ License?
 
 - Free as in free beer, free speech and free baby.
 
-Why no tinolib?
-
-- I want it to be minimal.
-- This includes dependencies.
-
