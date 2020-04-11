@@ -8,15 +8,6 @@ typedef struct _woftpd
     const char * const	*cmd;	/* cmdline:3+ or NULL	*/
   } *F;
 
-static const char *
-arg0(F F)
-{
-  const char	*p;
-
-  p	= strrchr(F->arg0, '/');
-  return p ? p+1 : F->arg0;
-}
-
 void
 usage(F F)
 {
