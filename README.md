@@ -41,7 +41,7 @@ even if DoSsed (something even a Raspberry PI can handle easily).
 
 ## Usage
 
-	git clone https://github.com/hilbix/woftpd.git
+	git clone --recursive https://github.com/hilbix/woftpd.git
 	cd woftpd
 	make
 	sudo make install
