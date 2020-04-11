@@ -34,16 +34,19 @@ usage(F F)
 int
 main(int argc, const char * const *argv)
 {
-  struct _woftpd	cfg;
+  struct _woftpd	cfg[1];
 
-  cfg.arg0	= argv[0];
-  cfg.sock	= argc>1 ? argv[1] : "";
-  cfg.dir	= argc>2 ? argv[2] : ".";
-  cfg.cmd	= argc>3 ? argv+3 : 0;
+  cfg->arg0	= argv[0];
+  cfg->sock	= argc>1 ? argv[1] : "";
+  cfg->dir	= argc>2 ? argv[2] : ".";
+  cfg->cmd	= argc>3 ? argv+3 : 0;
 
-  usage(&cfg);
-  sock(&cfg);
-  loop(&cfg);
+  usage(cfg);
+  000;
+#if 0
+  sock(cfg);
+  loop(cfg);
+#endif
 
   /* never reached	*/
   return 0;
